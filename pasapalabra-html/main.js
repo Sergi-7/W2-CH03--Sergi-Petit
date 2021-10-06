@@ -271,22 +271,29 @@ const questions = [
   },
 ];
 
-const questionsList = document.getElementById('circle').querySelectorAll(".letter");
+const questionsList = document
+  .getElementById("circle")
+  .querySelectorAll(".letter");
 const start = document.getElementById("start");
 const pasapalabra = document.getElementById("pasapalabra");
-const showQuestion = document.getElementById('question');
-const submitBtn = document.getElementById('submit');
-const resultWindow = document.getElementById('result');
-const respuesta = document.getElementById('respuesta');
-const enviarBtn = document.getElementById('enviar');
-const ranking = document.getElementById('ranking');
-const timer = document.getElementById('timer');
+const showQuestion = document.getElementById("question");
+const submitBtn = document.getElementById("submit");
+const resultWindow = document.getElementById("result");
+const respuesta = document.getElementById("respuesta");
+const enviarBtn = document.getElementById("enviar");
+const ranking = document.getElementById("ranking");
+const timer = document.getElementById("timer");
 
 start.addEventListener("click", startGame);
 pasapalabra.addEventListener("click", pasapalabraLog);
-submitBtn.addEventListener('click', submit);
-respuesta.addEventListener('keypress', function (e) { if (e.key === 'Enter') {e.preventDefault(); submit();} } )
-enviarBtn.addEventListener('click', getUsername);
+submitBtn.addEventListener("click", submit);
+respuesta.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    submit();
+  }
+});
+enviarBtn.addEventListener("click", getUsername);
 
 let randomQuestions = questions.map(getAnswerAndQuestion);
 let currentIndex = 0;
@@ -296,22 +303,21 @@ let countFalse = 0;
 let count;
 let counter;
 
-
 let username;
 
-let users = [];
+const users = [];
 let sortedUsers;
 
 function getUsername() {
-  let getUsername = document.getElementById('usuario').value;
+  const getUsername = document.getElementById("usuario").value;
   username = getUsername;
-  showQuestion.innerText = 'Bienvenido ' + username + ' ! Haz click en "Empezar el juego!" para comenzar !';
+  showQuestion.innerText = `Bienvenido ${username} ! Haz click en "Empezar el juego!" para comenzar !`;
 }
 
 // crear nuevo array con pregunta y respuesta escogida
 function getAnswerAndQuestion(item) {
-  let i = Math.floor(Math.random() * 3);
-  let newQuestion = {
+  const i = Math.floor(Math.random() * 3);
+  const newQuestion = {
     letter: item.letter,
     answer: item.answer[i],
     status: item.status,
@@ -321,90 +327,95 @@ function getAnswerAndQuestion(item) {
 }
 
 function startGame() {
-   randomQuestions = questions.map(getAnswerAndQuestion);
-   currentIndex = 0;
-   countTrue = 0;
-   countFalse = 0;
-   questionsList.forEach(question => question.style.background = 'linear-gradient(to right, #1d0555, #487e99)');
+  randomQuestions = questions.map(getAnswerAndQuestion);
+  currentIndex = 0;
+  countTrue = 0;
+  countFalse = 0;
+  questionsList.forEach(
+    (question) =>
+      (question.style.background =
+        "linear-gradient(to right, #1d0555, #487e99)")
+  );
   showQuestion.innerText = randomQuestions[currentIndex].question;
-  start.style.display = 'none';
-  ranking.style.display = 'none';
+  start.style.display = "none";
+  ranking.style.display = "none";
   count = 200;
   counter = setInterval(countDown, 1000);
 }
 
-
 function nextTurn() {
-  
-  if(currentIndex === randomQuestions.length -1){ 
-    /*if (randomQuestions.some(function check(question) { return question.status === 0}) === true) {
-      currentIndex=0 }*/
-      if (randomQuestions.some(question => question.status === 0) === true ) {
-        currentIndex = 0; 
-        showQuestion.innerText = randomQuestions[currentIndex].question;
-          }
-
-  } else if (randomQuestions[currentIndex].status === 0 ) {
-    //currentIndex++;
-    //showQuestion.innerText = randomQuestions[currentIndex].question;
-    let nextQuestion = randomQuestions.findIndex((question, index) => index > currentIndex && question.status === 0);
+  if (currentIndex === randomQuestions.length - 1) {
+    /* if (randomQuestions.some(function check(question) { return question.status === 0}) === true) {
+      currentIndex=0 } */
+    if (randomQuestions.some((question) => question.status === 0) === true) {
+      currentIndex = 0;
+      showQuestion.innerText = randomQuestions[currentIndex].question;
+    }
+  } else if (randomQuestions[currentIndex].status === 0) {
+    // currentIndex++;
+    // showQuestion.innerText = randomQuestions[currentIndex].question;
+    const nextQuestion = randomQuestions.findIndex(
+      (question, index) => index > currentIndex && question.status === 0
+    );
     currentIndex = nextQuestion;
     showQuestion.innerText = randomQuestions[currentIndex].question;
     console.log(randomQuestions);
-    }
-  
+  }
 
- 
-if (randomQuestions.some(question => question.status === 0) === false )
-  {
-  clearInterval(counter);
-  document.getElementById("timer").innerHTML=0;
-  start.innerText = 'Volver a jugar !';
-  start.style.display = 'inline-block';
-  showQuestion.innerText = 'Se acabo el juego ! Has terminado la partida con ' + countTrue + ' aciertos y ' + countFalse + ' errores !';
-  rankPlayers();
-}
+  if (randomQuestions.some((question) => question.status === 0) === false) {
+    clearInterval(counter);
+    document.getElementById("timer").innerHTML = 0;
+    start.innerText = "Volver a jugar !";
+    start.style.display = "inline-block";
+    showQuestion.innerText = `Se acabo el juego ! Has terminado la partida con ${countTrue} aciertos y ${countFalse} errores !`;
+    rankPlayers();
+  }
 
-  /*if (randomQuestions[currentIndex].status === 0 ) {
+  /* if (randomQuestions[currentIndex].status === 0 ) {
   //currentIndex++;
   //showQuestion.innerText = randomQuestions[currentIndex].question;
   let nextQuestion = randomQuestions.findIndex((question, index) => index > currentIndex && question.status === 0);
   currentIndex = nextQuestion;
   showQuestion.innerText = randomQuestions[currentIndex].question;
   console.log(randomQuestions);
-  }*/
- 
+  } */
 
   if (randomQuestions[currentIndex].status !== 0) {
-    let nextQuestion = randomQuestions.findIndex((question, index) => index >= currentIndex && question.status === 0);
-  currentIndex = nextQuestion;
-  showQuestion.innerText = randomQuestions[currentIndex].question;
+    const nextQuestion = randomQuestions.findIndex(
+      (question, index) => index >= currentIndex && question.status === 0
+    );
+    currentIndex = nextQuestion;
+    showQuestion.innerText = randomQuestions[currentIndex].question;
   }
-  console.log(currentIndex)
+  console.log(currentIndex);
 }
 
-
 function pasapalabraLog() {
-  
-  if(currentIndex === randomQuestions.length -1){ 
-    
-      if ((randomQuestions.some(question => question.status === 0)) === true  && randomQuestions[0].status === 0) {
-        currentIndex = 0; 
-        showQuestion.innerText = randomQuestions[currentIndex].question;  
-      } else if ((randomQuestions.some(question => question.status === 0)) === true) {
-        currentIndex = 0;
-        let nextQuestion = randomQuestions.findIndex((question, index) => index > currentIndex && question.status === 0);
-        currentIndex = nextQuestion;
-        showQuestion.innerText = randomQuestions[currentIndex].question;
-        console.log(currentIndex)
-      }
-      
+  if (currentIndex === randomQuestions.length - 1) {
+    if (
+      randomQuestions.some((question) => question.status === 0) === true &&
+      randomQuestions[0].status === 0
+    ) {
+      currentIndex = 0;
+      showQuestion.innerText = randomQuestions[currentIndex].question;
+    } else if (
+      randomQuestions.some((question) => question.status === 0) === true
+    ) {
+      currentIndex = 0;
+      const nextQuestion = randomQuestions.findIndex(
+        (question, index) => index > currentIndex && question.status === 0
+      );
+      currentIndex = nextQuestion;
+      showQuestion.innerText = randomQuestions[currentIndex].question;
+      console.log(currentIndex);
+    }
   } else {
-
-  let nextQuestion = randomQuestions.findIndex((question, index) => index > currentIndex && question.status === 0);
-  currentIndex = nextQuestion;
-  showQuestion.innerText = randomQuestions[currentIndex].question;
-  console.log(currentIndex)
+    const nextQuestion = randomQuestions.findIndex(
+      (question, index) => index > currentIndex && question.status === 0
+    );
+    currentIndex = nextQuestion;
+    showQuestion.innerText = randomQuestions[currentIndex].question;
+    console.log(currentIndex);
   }
 }
 
@@ -415,19 +426,21 @@ function submit() {
 }
 
 function getInputValue() {
-  let answer = document.getElementById('respuesta').value; 
+  const answer = document.getElementById("respuesta").value;
   checkAnswer(answer);
 }
 
 function checkAnswer(answer) {
-  if(answer.toLowerCase() === randomQuestions[currentIndex].answer) {
-    resultWindow.innerText = 'Correcto !';
-    questionsList[currentIndex].style.background ="linear-gradient(to right, #053509, #129c0d)";
+  if (answer.toLowerCase() === randomQuestions[currentIndex].answer) {
+    resultWindow.innerText = "Correcto !";
+    questionsList[currentIndex].style.background =
+      "linear-gradient(to right, #053509, #129c0d)";
     randomQuestions[currentIndex].status = 1;
     countTrue++;
   } else {
-    resultWindow.innerText = 'Incorrecto, la respuesta correcta era : ' + randomQuestions[currentIndex].answer;
-    questionsList[currentIndex].style.background ="linear-gradient(to right, #5e0909, #ff0000)";
+    resultWindow.innerText = `Incorrecto, la respuesta correcta era : ${randomQuestions[currentIndex].answer}`;
+    questionsList[currentIndex].style.background =
+      "linear-gradient(to right, #5e0909, #ff0000)";
     randomQuestions[currentIndex].status = 2;
     countFalse++;
   }
@@ -437,44 +450,48 @@ function rankPlayers() {
   rank(username);
   sortedUsers = sortArray(users);
   showRankings();
-  start.style.display = 'inline-block';
-  start.innerText = 'Volver a jugar';
-  document.getElementById('usuario').innerText = "";
+  start.style.display = "inline-block";
+  start.innerText = "Volver a jugar";
+  document.getElementById("usuario").innerText = "";
 }
 
 function rank(username) {
-  let rankUser = {
-      name: username,
-      correctAns: countTrue,
-      failedAns: countFalse,
-      }
+  const rankUser = {
+    name: username,
+    correctAns: countTrue,
+    failedAns: countFalse,
+  };
   users.push(rankUser);
 }
 
 function sortArray(array) {
-  array.sort(function (a, b) {return b.correctAns - a.correctAns});
-  array.forEach(function(element) { element.rankPos = users.indexOf(element) + 1;});
+  array.sort((a, b) => b.correctAns - a.correctAns);
+  array.forEach((element) => {
+    element.rankPos = users.indexOf(element) + 1;
+  });
   return array;
-  }
+}
 
-  function showRankings() {
-    ranking.style.display = 'inline-block';
-    ranking.innerText = "RANKING :" + '\n';
-    for (i = 0; i < sortedUsers.length; i++) {
-        ranking.innerText = ranking.innerText + `${sortedUsers[i].rankPos} posicion - ${sortedUsers[i].name} : ${sortedUsers[i].correctAns} aciertos ${sortedUsers[i].failedAns} fallos.` + '\n' ;
-    }
+function showRankings() {
+  ranking.style.display = "inline-block";
+  ranking.innerText = "RANKING :" + "\n";
+  for (i = 0; i < sortedUsers.length; i++) {
+    ranking.innerText =
+      `${ranking.innerText}${sortedUsers[i].rankPos} posicion - ${sortedUsers[i].name} : ${sortedUsers[i].correctAns} aciertos ${sortedUsers[i].failedAns} fallos.` +
+      `\n`;
+  }
 }
 
 function countDown() {
-    count=count-1;
-    if (count <= 0) {
-       document.getElementById("timer").innerHTML=0;
-       clearInterval(counter);
-       start.innerText = 'Volver a jugar !';
-       start.style.display = 'inline-block';
-       showQuestion.innerText = 'Se acabo el juego ! Has terminado la partida con ' + countTrue + ' aciertos y ' + countFalse + ' errores !';
-       rankPlayers();
-       return;
-      }
-   document.getElementById("timer").innerHTML=count;
+  count -= 1;
+  if (count <= 0) {
+    document.getElementById("timer").innerHTML = 0;
+    clearInterval(counter);
+    start.innerText = "Volver a jugar !";
+    start.style.display = "inline-block";
+    showQuestion.innerText = `Se acabo el juego ! Has terminado la partida con ${countTrue} aciertos y ${countFalse} errores !`;
+    rankPlayers();
+    return;
   }
+  document.getElementById("timer").innerHTML = count;
+}
