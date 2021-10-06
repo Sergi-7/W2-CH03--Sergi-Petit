@@ -1,0 +1,319 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+body {
+    background: linear-gradient(to right, #1d0555, #487e99);
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    margin: 50px;
+    font-size: 60px;
+    color:  rgb(219, 219, 235)
+}
+
+h2 {
+    font-size: 30px;
+    color:  rgb(219, 219, 235);
+    position: absolute;
+    left: 100px;
+    top: 120px;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 300px;
+    height:350px;
+    margin: 30px;
+    color:rgb(253, 253, 255);
+    background-color: rgb(107, 107, 155);
+    border-radius: 20px;
+    padding: 35px;
+    font-size: large;
+}
+
+
+.circle { 
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    background: linear-gradient(to right, #1d0555, #487e99);
+}
+
+
+.letter {
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    border-radius: 50%;
+    border: 1px solid whitesmoke;
+    position: absolute;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+    color: whitesmoke;
+    vertical-align: middle;
+    line-height: 40px;
+    background: linear-gradient(to right, #1d0555, #487e99);
+}
+
+.column {
+    float: right;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    text-align: center;
+}
+
+.timer {
+    width: 120px;
+    height: 120px;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color: whitesmoke;
+    vertical-align: middle;
+    line-height: 120px;
+    background: linear-gradient(to left, #1d0555, #487e99);
+}
+.question {
+    display:flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 500px;
+    height: 100px;
+    background: burlywood;
+    border-radius: 50px;
+    padding: 30px;
+    color: rgb(14, 13, 13);
+    font-size: larger;
+    font-weight: bold;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: xx-large;
+    width: 400px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    float: right;
+}
+
+.ranking {
+    display: none;
+    border-radius: 10px;
+    background-color: rgb(107, 107, 155);
+    color:rgb(253, 253, 255);
+    width: 350px;
+    height: 200px;
+    padding: 15px;
+    font-size: large;
+    position: absolute;
+    vertical-align: bottom;
+    right: 100px;
+    bottom: 100px;
+}
+
+.start{
+    margin: 10px;
+    padding: 5px;
+    border-radius:20px ;
+    border: 1px solid black;
+    width: 150px;
+    height: 60px;
+    flex-direction: row;
+    display: inline-block;
+    font-weight: bolder;
+}
+
+.pasapalabra {
+    margin: 10px;
+    padding: 6px;
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    flex-direction: row;
+    font-weight: bolder;
+}
+
+label {
+    width: 100px;
+    height: 20px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background: linear-gradient(to right, #1d0555, #487e99);
+    padding: 10px;
+    margin: 0 10px;
+    font-size: larger;
+    font-weight: bold;
+    color: #fafafa;
+}
+
+
+#respuesta {
+    width:200px;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: larger;
+    padding:5px;
+}
+
+.usuario {
+    margin: 25px;
+}
+
+#usuario {
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#enviar {
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#submit {
+    width: 150px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-weight: bolder;
+    vertical-align: middle;
+}
+#submit:hover {
+    background-color: rgb(107, 107, 155, 0.6);
+}
+
+
+.deg-0 {
+    transform:rotate(270deg) translate(250px) rotate(-270deg);
+}
+
+.deg-14 {
+    transform:rotate(283.333deg) translate(250px) rotate(-283.333deg);
+}
+
+.deg-28 {
+    transform:rotate(296.666deg) translate(250px) rotate(-296.666deg);
+}
+
+.deg-42 {
+    transform:rotate(309.999deg) translate(250px) rotate(-309.999deg);
+}
+
+.deg-56 {
+    transform:rotate(323.333deg) translate(250px) rotate(-323.333deg);
+}
+
+.deg-70 {
+    transform:rotate(336.666deg) translate(250px) rotate(-336.666deg);
+}
+
+.deg-84 {
+    transform:rotate(349.999deg) translate(250px) rotate(-349.999deg);
+}
+
+.deg-98 {
+    transform:rotate(3.332deg) translate(250px) rotate(-3.332deg);
+}
+
+.deg-112 {
+    transform:rotate(16.665deg) translate(250px) rotate(-16.665deg);
+}
+
+.deg-126 {
+    transform:rotate(29.998deg) translate(250px) rotate(-29.998deg);
+}
+
+.deg-140 {
+    transform:rotate(43.331deg) translate(250px) rotate(-43.331deg);
+}
+
+.deg-154 {
+    transform:rotate(56.6643deg) translate(250px) rotate(-56.6643deg);
+}
+
+.deg-168 {
+    transform:rotate(69.997deg) translate(250px) rotate(-69.997deg);
+}
+
+.deg-182 {
+    transform:rotate(83.303deg) translate(250px) rotate(-83.303deg);
+}
+
+.deg-196 {
+    transform:rotate(96.6603deg) translate(250px) rotate(-96.6603deg);
+}
+
+.deg-210 {
+    transform:rotate(109.99deg) translate(250px) rotate(-109.99deg);
+}
+
+.deg-224 {
+    transform:rotate(123.323deg) translate(250px) rotate(-123.323deg);
+}
+
+.deg-238 {
+    transform:rotate(136.656deg) translate(250px) rotate(-136.656deg);
+}
+
+.deg-252 {
+    transform:rotate(149.989deg) translate(250px) rotate(-149.989deg);
+}
+
+.deg-266 {
+    transform:rotate(163.322deg) translate(250px) rotate(-163.322deg);
+}
+
+.deg-280 {
+    transform:rotate(176.655deg) translate(250px) rotate(-176.655deg);
+}
+
+.deg-294 {
+    transform:rotate(189.988deg) translate(250px) rotate(-189.988deg);
+}
+
+.deg-308 {
+    transform:rotate(203.321deg) translate(250px) rotate(-203.321deg);
+}
+
+.deg-322 {
+    transform:rotate(216.654deg) translate(250px) rotate(-216.654deg);
+}
+
+.deg-336 {
+    transform:rotate(229.988deg) translate(250px) rotate(-229.988deg);
+}
+
+.deg-350 {
+    transform:rotate(243.3deg) translate(250px) rotate(-243.3deg);
+}
+
+.deg-360 {
+    transform:rotate(256.667deg) translate(250px) rotate(-256.667deg);
+}

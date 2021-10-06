@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Pasapalabra</h1>
+    <h2>Instrucciones :</h2>
+    <p>Introduce tu nombre de usuario en el formulario de abajo a la izquierda y preparate para jugar !<br/><br/>Iran apareciendo las preguntas en el recuadro
+      inferior. Escribe la respuesta que creas que es correcta o pulsa
+      pasapalabra si no sabes la respuesta para pasar a la siguiente pregunta.<br/><br/>
+      Cuando finalice el juego, si quieres volver a jugar haz click en "Volver a jugar", y si quieres cambiar de usuario, introducelo de nuevo en el formulario y despues  haz click en "Volver a jugar".
+    </p>
+    <div class="column">
+    <div class="result" id="result"></div>
+    <form>
+        <label for="respuesta" class="label">Respuesta:</label>
+        <input type="text" id="respuesta">
+        <input type="button" value="Enviar respuesta" id="submit">
+    </form>
+    <button class="start" id="start">Empezar el juego !</button>
+    <button class="pasapalabra" id="pasapalabra">Pasapalabra !</button>
+    <div class="ranking" id="ranking"></div>
+    </div>
+    <div class="circle" id="circle">
+      <div class="timer" id="timer">200</div>
+      <div class="letter deg-0">A</div>
+      <div class="letter deg-14">B</div>
+      <div class="letter deg-28">C</div>
+      <div class="letter deg-42">D</div>
+      <div class="letter deg-56">E</div>
+      <div class="letter deg-70">F</div>
+      <div class="letter deg-84">G</div>
+      <div class="letter deg-98">H</div>
+      <div class="letter deg-112">I</div>
+      <div class="letter deg-126">J</div>
+      <div class="letter deg-140">K</div>
+      <div class="letter deg-154">L</div>
+      <div class="letter deg-168">M</div>
+      <div class="letter deg-182">N</div>
+      <div class="letter deg-196">Ñ</div>
+      <div class="letter deg-210">O</div>
+      <div class="letter deg-224">P</div>
+      <div class="letter deg-238">Q</div>
+      <div class="letter deg-252">R</div>
+      <div class="letter deg-266">S</div>
+      <div class="letter deg-280">T</div>
+      <div class="letter deg-294">U</div>
+      <div class="letter deg-308">V</div>
+      <div class="letter deg-322">W</div>
+      <div class="letter deg-336">X</div>
+      <div class="letter deg-350">Y</div>
+      <div class="letter deg-360">Z</div>
+    </div>
+    <div class="question" id="question"></div>
+    <form class="usuario">
+      <label for="usuario" class="usuario">Usuario:</label>
+      <input type="text" id="usuario">
+      <input type="button" value="Enviar !" id="enviar">
+  </form>
+  </body>
+  <script src="main.js"></script>
+</html>
