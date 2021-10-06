@@ -1,3 +1,5 @@
+module.exports = numGenerator;
+
 let bingoCard;
 
 let cardNumbers = numGenerator(1, 75);
