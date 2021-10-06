@@ -35,6 +35,7 @@ function calculator(x, y) {
       }.`
     );
   }
+  return resultSum;
 }
 
 calculator(5, 5);
