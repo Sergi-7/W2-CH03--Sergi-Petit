@@ -1,3 +1,5 @@
+module.exports = calculator;
+
 function calculator(x, y) {
   const resultSum = x + y;
   const resultRest = x - y;
